@@ -27,6 +27,14 @@ const emotionKeywords: EmotionKeywords = {
   ]
 };
 
+// Map internal emotion keywords to valid EmotionType values
+const emotionMapping: Record<string, EmotionType> = {
+  celebrating: 'approving',
+  thinking: 'thinking_deep',
+  angry: 'concerned',
+  idle: 'idle'
+};
+
 export function analyzeEmotion(text: string): EmotionType {
   const lowerText = text.toLowerCase();
   
@@ -46,15 +54,16 @@ export function analyzeEmotion(text: string): EmotionType {
 
   const maxEmotion = Object.entries(scores).reduce((max, [emotion, score]) => {
     return score > max.score ? { emotion, score } : max;
-  }, { emotion: 'talking', score: 0 });
+  }, { emotion: 'idle', score: 0 });
 
   if (maxEmotion.score === 0) {
-    return 'talking';
+    return 'idle';
   }
 
   if (maxEmotion.score >= 2) {
-    return maxEmotion.emotion as EmotionType;
+    // Map internal emotion to valid EmotionType
+    return emotionMapping[maxEmotion.emotion] || 'idle';
   }
 
-  return 'talking';
+  return 'idle';
 }

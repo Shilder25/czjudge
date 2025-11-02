@@ -146,3 +146,8 @@ The system uses keyword-based heuristic analysis to detect valid legal case desc
   - Vercel automatically maps api/index.ts to `/api/`, so internal routes must be relative
   - Frontend calls `/api/chat` → Vercel rewrites to `/api` (executes api/index.ts) → Express handles `/chat`
   - Resolved "Unexpected token" JSON parsing errors from incorrect route mapping
+- **TypeScript Build Errors Fix**: Corrected EmotionType errors in server/emotion-analyzer.ts
+  - Changed all references from 'talking' to 'idle' emotion
+  - Added emotion mapping: 'celebrating' → 'approving', 'thinking' → 'thinking_deep', 'angry' → 'concerned'
+  - Ensures analyzer always returns valid EmotionType ('idle', 'analyzing', 'thinking_deep', 'presenting', 'approving', 'concerned', 'gavel_tap')
+  - Fixed TypeScript compilation errors causing "404: DEPLOYMENT_NOT_FOUND" in Vercel
