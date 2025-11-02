@@ -1,0 +1,21 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+
+# Ignore large file types but allow specific assets directory
+*.fbx
+*.zip
+*.tar
+*.rar
+
+# Allow .glb files in client/public
+*.glb
+!client/public/*.glb
+
+# Large media files
+*.mp4
+*.mov
+*.avi
