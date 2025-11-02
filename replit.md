@@ -124,10 +124,11 @@ The system uses keyword-based heuristic analysis to detect valid legal case desc
   - Favicon: image_1762081896656.png (CZ avatar logo)
   - Both files copied to client/public/ directory
   - HTML meta tags updated to reference new assets
-- **Contract Address Update**: Changed displayed text to announce future Twitter reveal
-  - Replaced hardcoded contract address with message: "Contract Address will be announced on our Twitter @CZJUDGEAI"
-  - Clickable Twitter link with gold highlight on hover
-  - Removed copy-to-clipboard functionality (no longer needed)
+- **Official Contract Address**: Updated to display official smart contract address
+  - Contract Address: 0x445d4785ff7d39e95de51c3b06878e0b2bf04444
+  - Added copy-to-clipboard functionality with visual feedback (Copied state)
+  - Dark mode support for verified badge styling
+  - Network: BNB Smart Chain (BSC), Chain ID: 56
 - **AI-Powered Context-Specific Analytics**: Complete rewrite of analytics generation system
   - Removed random/generic analytics generation
   - Now uses OpenAI GPT-3.5-turbo (or Anthropic Claude Haiku) to analyze EACH specific legal situation
